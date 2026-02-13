@@ -1,0 +1,49 @@
+---
+description: 新潟旅行行程Webサイトのプロジェクト概要と構成
+alwaysApply: true
+---
+
+# 新潟旅行行程Webサイト プロジェクト記録
+
+## プロジェクト概要
+
+- **目的**: 妻と新潟旅行の行程を共有するためのWebサイト
+- **作成日**: 2026年2月13日
+- **旅行日程**: 2026年4月11日（土）〜4月12日（日）
+- **旅行テーマ**: 新潟1泊2日 熟年夫婦のゆったり贅沢旅プラン
+
+## 技術構成
+
+- **構成**: 単一HTML（`index.html`）のみ、フレームワーク不使用
+- **フォント**: Google Fonts（Noto Sans JP, Noto Serif JP）
+- **デザイン**: タイムライン形式、レスポンシブ対応、スクロールアニメーション付き
+- **ホスティング**: GitHub Pages（GitHub Actionsワークフローでデプロイ）
+
+## リポジトリ情報
+
+- **GitHub**: https://github.com/kacchan-hub/niigata-trip
+- **公開URL**: https://kacchan-hub.github.io/niigata-trip/
+- **ブランチ**: master
+
+## ファイル構成
+
+```
+niigata-trip/
+├── index.html                  # メインWebサイト（全コンテンツ含む）
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Pages デプロイ用ワークフロー
+└── .cursor/
+    └── rules/
+        └── project-context.mdc # このファイル（プロジェクト記録）
+```
+
+## 元データ
+
+- 旅行プランのマークダウンファイル（`新潟 1泊2日 熟年夫婦のゆったり贅沢旅プラン.md`）を元に構築
+- 行程: 1日目は西福寺→寿司ランチ→パワースポット→割烹ディナー、2日目はカーブドッチワイナリー→フレンチ→お土産→帰京
+
+## 注意事項
+
+- `index.html` を編集した場合、masterブランチへのpushで自動デプロイされる
+- 日本語コンテンツのため、`lang="ja"` を維持すること
