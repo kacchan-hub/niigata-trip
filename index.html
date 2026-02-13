@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新潟 1泊2日 ゆったり贅沢旅プラン</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d5016;
+      --primary-light: #4a7c28;
+      --accent: #c4956a;
+      --accent-light: #e8cdb5;
+      --bg: #faf8f5;
+      --bg-warm: #f5f0e8;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --white: #ffffff;
+      --shadow: 0 2px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a3a0a 0%, #2d5016 30%, #3d6b1e 60%, #4a7c28 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(196,149,106,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+
+    .hero-deco {
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.06;
+      color: white;
+      user-select: none;
+    }
+    .hero-deco:nth-child(1) { top: 10%; left: 8%; }
+    .hero-deco:nth-child(2) { bottom: 15%; right: 10%; }
+    .hero-deco:nth-child(3) { top: 50%; left: 60%; font-size: 80px; }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.4rem 1.6rem;
+      border-radius: 100px;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: 0.5em;
+      font-weight: 400;
+      color: var(--accent-light);
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-date {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-tag {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: rgba(255,255,255,0.5);
+      stroke-width: 2;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav-inner::-webkit-scrollbar { display: none; }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .nav a .nav-icon { font-size: 1.1rem; }
+
+    /* ===== OVERVIEW ===== */
+    .overview {
+      background: var(--white);
+      padding: 4rem 1.5rem;
+    }
+
+    .overview-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .overview-card {
+      background: var(--bg-warm);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .overview-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .overview-card .label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+
+    .overview-card .value {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 4rem 1.5rem;
+    }
+
+    .section:nth-child(even) {
+      background: var(--white);
+    }
+
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header .day-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.3rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.7rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary-light), var(--accent));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.55rem;
+      top: 0.3rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--primary);
+      z-index: 1;
+    }
+
+    .timeline-item.highlight .timeline-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+      width: 16px;
+      height: 16px;
+      left: -2.6rem;
+      top: 0.25rem;
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .timeline-card {
+      background: var(--bg-warm);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      margin-top: 0.6rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .timeline-card .place-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .timeline-card .details {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-card .details p { margin-bottom: 0.2rem; }
+
+    .timeline-card .description {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-top: 0.6rem;
+    }
+
+    .timeline-card .note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.6rem;
+      background: #fff3e0;
+      color: #e65100;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ===== HOTEL ===== */
+    .hotel-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hotel-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hotel-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .hotel-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .hotel-info-item .icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .hotel-info-item .label {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .hotel-info-item .value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ===== ADVICE ===== */
+    .advice-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .advice-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .section:nth-child(even) .advice-item {
+      background: var(--bg-warm);
+      box-shadow: none;
+    }
+
+    .advice-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .advice-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-warm);
+      border-radius: 12px;
+    }
+
+    .section:nth-child(even) .advice-icon {
+      background: var(--white);
+    }
+
+    .advice-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .advice-item p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--primary);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+    }
+
+    .footer .footer-message {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .timeline { padding-left: 2.2rem; }
+      .timeline::before { left: 0.5rem; }
+      .timeline-dot { left: -1.95rem; }
+      .timeline-item.highlight .timeline-dot { left: -2rem; }
+      .timeline-card { padding: 1rem 1.2rem; }
+      .hotel-card { padding: 1.8rem; }
+      .overview-grid { grid-template-columns: 1fr 1fr; }
+      .nav a { padding: 0.8rem 1rem; font-size: 0.8rem; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .nav, .scroll-hint { display: none; }
+      .hero { min-height: auto; padding: 3rem 1.5rem; }
+      .section { padding: 2rem 1.5rem; }
+      .timeline-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero-deco">🌾</div>
+    <div class="hero-deco">🍶</div>
+    <div class="hero-deco">⛩️</div>
+    <div class="hero-content">
+      <div class="hero-label">NIIGATA TRAVEL PLAN</div>
+      <h1>
+        新潟 1泊2日
+        <span>熟年夫婦のゆったり贅沢旅プラン</span>
+      </h1>
+      <p class="hero-date">2026年4月11日（土）〜 4月12日（日）</p>
+      <div class="hero-tags">
+        <span class="hero-tag">🎨 芸術鑑賞</span>
+        <span class="hero-tag">🍣 美食</span>
+        <span class="hero-tag">♨️ 温泉</span>
+        <span class="hero-tag">🍶 地酒</span>
+        <span class="hero-tag">⛩️ パワースポット</span>
+        <span class="hero-tag">🍷 ワイナリー</span>
+      </div>
+    </div>
+    <a href="#overview" class="scroll-hint">
+      スクロール
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#overview"><span class="nav-icon">📋</span>概要</a>
+      <a href="#day1"><span class="nav-icon">🎨</span>1日目</a>
+      <a href="#day2"><span class="nav-icon">🍷</span>2日目</a>
+      <a href="#hotel"><span class="nav-icon">🏨</span>宿泊</a>
+      <a href="#advice"><span class="nav-icon">💡</span>アドバイス</a>
+    </div>
+  </nav>
+
+  <!-- ===== OVERVIEW ===== -->
+  <section class="overview" id="overview">
+    <div class="overview-inner">
+      <div class="section-header">
+        <h2>旅の概要</h2>
+        <p>彫刻美とパワースポットを巡り、新潟の食を極める大人の休日</p>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-card fade-in">
+          <div class="icon">📅</div>
+          <div class="label">日程</div>
+          <div class="value">4/11（土）〜 4/12（日）</div>
+        </div>
+        <div class="overview-card fade-in">
+          <div class="icon">🚄</div>
+          <div class="label">移動手段</div>
+          <div class="value">新幹線・タクシー・JR</div>
+        </div>
+        <div class="overview-card fade-in">
+          <div class="icon">🏨</div>
+          <div class="label">宿泊</div>
+          <div class="value">アパホテル＆リゾート<br>新潟駅前大通</div>
+        </div>
+        <div class="overview-card fade-in">
+          <div class="icon">🎯</div>
+          <div class="label">テーマ</div>
+          <div class="value">芸術・美食・温泉・お酒</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DAY 1 ===== -->
+  <section class="section" id="day1">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="day-badge">DAY 1 — 4月11日（土）</span>
+        <h2>芸術鑑賞とパワースポット・極上寿司ランチ</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 07:48 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">07:48</div>
+          <div class="timeline-title">🚄 東京駅 出発</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">上越新幹線「とき305号」にて浦佐駅へ。</p>
+        </div>
+
+        <!-- 09:17 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:17</div>
+          <div class="timeline-title">🚉 浦佐駅 到着</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">駅前からタクシーで西福寺（開山堂）へ（約10分）。</p>
+        </div>
+
+        <!-- 09:30-10:45 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:30 〜 10:45</div>
+          <div class="timeline-title">🎨 西福寺 拝観</div>
+          <div class="timeline-card">
+            <div class="place-name">⛩️ 西福寺（開山堂）</div>
+            <div class="description">
+              「越後のミケランジェロ」と称される石川雲蝶の最高傑作。天井一面に広がる極彩色の彫刻をじっくりと鑑賞できます。圧倒的な芸術作品に、時を忘れるひとときを。
+            </div>
+          </div>
+        </div>
+
+        <!-- 11:03 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:03</div>
+          <div class="timeline-title">🚄 浦佐駅 → 新潟駅</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">上越新幹線「とき313号」にて新潟駅へ（11:36着）。荷物をホテルに預けてからランチへ。</p>
+        </div>
+
+        <!-- 11:45 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:45</div>
+          <div class="timeline-title">🏨 ホテルチェックイン（荷物預け）</div>
+          <div class="timeline-card">
+            <div class="place-name">🏨 アパホテル＆リゾート〈新潟駅前大通〉</div>
+            <div class="details">
+              <p>📍 新潟県新潟市中央区東大通1-1-1</p>
+              <p>📞 025-240-1111</p>
+            </div>
+            <div class="description">正式なチェックインは16:00以降ですが、荷物預けは可能です。</div>
+          </div>
+        </div>
+
+        <!-- 12:00-13:30 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:00 〜 13:30</div>
+          <div class="timeline-title">🍣 昼食：新潟の海の幸を握りで堪能</div>
+          <div class="timeline-card">
+            <div class="place-name">🍣 すし いわ</div>
+            <div class="details">
+              <p>📍 新潟市中央区 東大通2丁目7-28 スタック（STC）新潟1F</p>
+              <p>📞 025-311-1266</p>
+              <p>🕐 11:30～14:00（LO 13:00）</p>
+              <p>🚶 新潟駅より徒歩約5分</p>
+            </div>
+            <div class="description">
+              新潟沖で漁獲されるノドグロなどの白身魚をメインに、天然本マグロやウニなど最上級のネタで極上の寿司を握ります。岩船産コシヒカリを使ったシャリと、新潟の地酒が種類豊富です。
+            </div>
+            <div class="note">⚠️ 土曜日のため、事前予約を強くお勧めします</div>
+          </div>
+        </div>
+
+        <!-- 14:00-15:30 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">14:00 〜 15:30</div>
+          <div class="timeline-title">⛩️ 新潟市内パワースポット巡り</div>
+          <div class="timeline-card">
+            <div class="place-name">⛩️ 新潟総鎮守 白山神社</div>
+            <div class="details">
+              <p>🚕 新潟駅からタクシーで約10分</p>
+            </div>
+            <div class="description">
+              縁結びや開運で知られる新潟屈指のパワースポット。隣接する白山公園は「日本の都市公園100選」にも選ばれており、4月中旬は桜が楽しめる可能性も高い散策に最適な場所です。
+            </div>
+          </div>
+          <div class="timeline-card" style="margin-top:1rem;">
+            <div class="place-name">🦊 湊稲荷神社</div>
+            <div class="description">
+              「願掛け狐」を回して願いを唱える、ユニークで強力なパワースポットとして人気です。
+            </div>
+          </div>
+        </div>
+
+        <!-- 16:00 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">16:00</div>
+          <div class="timeline-title">♨️ ホテル正式チェックイン</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">準天然温泉の大浴場・露天風呂で疲れを癒してください。</p>
+        </div>
+
+        <!-- 18:30 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">18:30</div>
+          <div class="timeline-title">🍽️ 夕食：新潟古町で割烹を堪能</div>
+          <div class="timeline-card">
+            <div class="place-name">🍽️ 新潟古町 而今（じこん）</div>
+            <div class="details">
+              <p>📍 新潟市中央区東堀前通</p>
+              <p>📞 025-378-1651</p>
+              <p>🚕 新潟駅からタクシーで約10分</p>
+            </div>
+            <div class="description">
+              新潟古町にある和食割烹。のどぐろのしゃぶしゃぶや蟹の炭火焼きなど、昼食の握り寿司とは異なる調理法で新潟の高級食材を堪能できます。佐渡牛を使用した一品や、名物の土鍋ごはんも特徴。個室あり。新潟県産の食材を中心に、生産者から直接仕入れた上質な食材を使用。
+            </div>
+            <div class="note">⚠️ 事前予約をお勧めします</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DAY 2 ===== -->
+  <section class="section" id="day2">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="day-badge">DAY 2 — 4月12日（日）</span>
+        <h2>ワイナリーの休日と美食のフルコース</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 09:22 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:22</div>
+          <div class="timeline-title">🚃 新潟駅 出発</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">JR越後線（吉田行）にて内野駅へ。</p>
+        </div>
+
+        <!-- 09:48 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:48</div>
+          <div class="timeline-title">🚉 内野駅 到着</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">10:00にカーブドッチ無料送迎バスに乗車。</p>
+        </div>
+
+        <!-- 11:00-12:00 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:00 〜 12:00</div>
+          <div class="timeline-title">🍷 ワイナリーツアー</div>
+          <div class="timeline-card">
+            <div class="place-name">🍇 カーブドッチワイナリー</div>
+            <div class="description">
+              醸造蔵の見学ツアーに参加。新潟の風土が育むワインの世界を体験します。
+            </div>
+          </div>
+        </div>
+
+        <!-- 12:00-14:30 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:00 〜 14:30</div>
+          <div class="timeline-title">🍽️ レストラン トラヴィーニュ</div>
+          <div class="timeline-card">
+            <div class="place-name">🍷 フランス料理のフルコース</div>
+            <div class="description">
+              ぶどう畑を眺めながら、自社ワインとの最高のマリアージュをお楽しみください。新潟の食材を活かした本格フレンチを堪能する特別なランチタイム。
+            </div>
+          </div>
+        </div>
+
+        <!-- 15:00 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">15:00</div>
+          <div class="timeline-title">🚌 ワイナリー 出発</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">無料送迎バスにて内野駅へ（15:30着）。</p>
+        </div>
+
+        <!-- 15:52 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">15:52</div>
+          <div class="timeline-title">🚃 内野駅 → 新潟駅</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">JR越後線にて新潟駅へ（16:18着）。</p>
+        </div>
+
+        <!-- 16:30-17:30 -->
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">16:30 〜 17:30</div>
+          <div class="timeline-title">🛍️ 新潟駅でお買い物</div>
+          <div class="timeline-card">
+            <div class="place-name">🎁 CoCoLo新潟 ＆ ぽんしゅ館</div>
+            <div class="description">
+              駅ビル「CoCoLo新潟」でお土産探し。「ぽんしゅ館」では新潟の地酒を堪能できます。
+            </div>
+          </div>
+        </div>
+
+        <!-- 17:54 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">17:54</div>
+          <div class="timeline-title">🚄 新潟駅 出発 → 東京</div>
+          <p style="font-size:0.9rem; color:var(--text-light);">上越新幹線「とき340号」にて東京へ（19:48着）。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOTEL ===== -->
+  <section class="section" id="hotel">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>宿泊先</h2>
+      </div>
+      <div class="hotel-card fade-in">
+        <h3>🏨 アパホテル＆リゾート〈新潟駅前大通〉</h3>
+        <div class="hotel-info-grid">
+          <div class="hotel-info-item">
+            <div class="icon">📍</div>
+            <div>
+              <div class="label">住所</div>
+              <div class="value">新潟県新潟市中央区東大通1-1-1</div>
+            </div>
+          </div>
+          <div class="hotel-info-item">
+            <div class="icon">📞</div>
+            <div>
+              <div class="label">電話</div>
+              <div class="value">025-240-1111</div>
+            </div>
+          </div>
+          <div class="hotel-info-item">
+            <div class="icon">🚶</div>
+            <div>
+              <div class="label">アクセス</div>
+              <div class="value">新潟駅から徒歩2分</div>
+            </div>
+          </div>
+          <div class="hotel-info-item">
+            <div class="icon">✨</div>
+            <div>
+              <div class="label">特徴</div>
+              <div class="value">2022年開業の最新大型ホテル</div>
+            </div>
+          </div>
+          <div class="hotel-info-item">
+            <div class="icon">♨️</div>
+            <div>
+              <div class="label">温泉・設備</div>
+              <div class="value">準天然温泉の大浴場・露天風呂完備</div>
+            </div>
+          </div>
+          <div class="hotel-info-item">
+            <div class="icon">💑</div>
+            <div>
+              <div class="label">おすすめポイント</div>
+              <div class="value">設備が新しく清潔で快適</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADVICE ===== -->
+  <section class="section" id="advice">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>旅行のアドバイス</h2>
+      </div>
+      <div class="advice-grid">
+        <div class="advice-item fade-in">
+          <div class="advice-icon">📞</div>
+          <div>
+            <h4>飲食店の予約について</h4>
+            <p>4月11日は土曜日のため、すし いわと而今（じこん）は早めの予約を強くお勧めします。どちらも人気店のため、事前予約なしでは入店できない可能性があります。</p>
+          </div>
+        </div>
+        <div class="advice-item fade-in">
+          <div class="advice-icon">⛩️</div>
+          <div>
+            <h4>パワースポットの回り方</h4>
+            <p>白山神社から湊稲荷神社まではタクシーで5分ほどです。セットで回るのがスムーズです。</p>
+          </div>
+        </div>
+        <div class="advice-item fade-in">
+          <div class="advice-icon">🧥</div>
+          <div>
+            <h4>服装</h4>
+            <p>4月の新潟は日中暖かくても朝晩は冷え込むことがあります。脱ぎ着しやすい上着をご用意ください。</p>
+          </div>
+        </div>
+        <div class="advice-item fade-in">
+          <div class="advice-icon">🍶</div>
+          <div>
+            <h4>地酒について</h4>
+            <p>新潟駅の「ぽんしゅ館」では500円から利き酒が楽しめます。帰路の楽しみとしてぜひご利用ください。</p>
+          </div>
+        </div>
+        <div class="advice-item fade-in">
+          <div class="advice-icon">🍽️</div>
+          <div>
+            <h4>食事の多様性</h4>
+            <p>初日は昼に握り寿司、夜に割烹（しゃぶしゃぶ・炭火焼き）と、異なる調理法で新潟の食を堪能できます。2日目はフランス料理のフルコースで、新潟ワインとのマリアージュをお楽しみください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p class="footer-message">素敵な新潟の旅をお楽しみください</p>
+    <p>新潟 1泊2日 ゆったり贅沢旅プラン — 2026年4月11日〜12日</p>
+  </footer>
+
+  <!-- ===== SCROLL ANIMATION ===== -->
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
